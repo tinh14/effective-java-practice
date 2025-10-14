@@ -4,7 +4,7 @@ package chapter2.item6.autoboxing;
 
 public class Sum {
 
-    private static long dumpSum() {
+    private static long dumbSum() {
         Long sum = 0L;
         for (long i = 0; i <= Integer.MAX_VALUE; i++)
             sum += i;
@@ -31,10 +31,10 @@ public class Sum {
             System.out.println((end - start) / 1_000_000. + " ms.");
         }
 
-        System.out.println("Dump sum:");
+        System.out.println("Dumb sum:");
         for (int i = 0; i < numSets; i++) {
             long start = System.nanoTime();
-            x += dumpSum();
+            x += dumbSum();
             long end = System.nanoTime();
             System.out.println((end - start) / 1_000_000. + " ms.");
         }
