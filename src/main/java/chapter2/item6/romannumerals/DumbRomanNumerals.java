@@ -1,6 +1,6 @@
 package chapter2.item6.romannumerals;
 
-public class DumpRomanNumerals implements RomanNumerals {
+public class DumbRomanNumerals implements RomanNumerals {
 
     @Override
     public boolean isRomanNumeral(String s) {

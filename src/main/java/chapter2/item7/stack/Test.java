@@ -30,6 +30,6 @@ public class Test {
 
 //        testStack(new SmartStack());
 
-        testStack(new DumpStack());
+        testStack(new DumbStack());
     }
 }

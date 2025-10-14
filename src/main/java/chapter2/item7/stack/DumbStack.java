@@ -1,6 +1,6 @@
 package chapter2.item7.stack;
 
-public class DumpStack extends AbstractStack {
+public class DumbStack extends AbstractStack {
 
     @Override
     public Object pop() {
