@@ -25,7 +25,7 @@ public class Elvis implements Serializable {
         Elvis elvis = Elvis.INSTANCE;
         elvis.leaveTheBuilding();
 
-        String fileName = "elvis.ser";
+        String fileName = "src/main/java/chapter2/item3/serializable/elvis.ser";
 
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName))){
             out.writeObject(elvis);
