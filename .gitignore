@@ -4,13 +4,15 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
-*.iml
-*.ipr
+.idea/*
+# Keep essential shared project configs
+!/.idea/misc.xml
+!/.idea/modules.xml
+!/.idea/compiler.xml
+!/.idea/jarRepositories.xml
+!/.idea/vcs.xml
+!/.idea/codeStyles/
+!/.idea/runConfigurations/
 
 ### Eclipse ###
 .apt_generated
