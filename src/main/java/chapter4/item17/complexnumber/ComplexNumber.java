@@ -3,10 +3,6 @@ package chapter4.item17.complexnumber;
 import java.util.Comparator;
 
 public abstract class ComplexNumber implements Comparable<ComplexNumber> {
-    public static final ComplexNumber ZERO = ComplexNumberCache.ZERO;
-    public static final ComplexNumber ONE = ComplexNumberCache.ONE;
-    public static final ComplexNumber I = ComplexNumberCache.I;
-
     final double r;
     final double i;
 
@@ -16,25 +12,33 @@ public abstract class ComplexNumber implements Comparable<ComplexNumber> {
     }
 
     public static ComplexNumber valueOf(double r, double i) {
-        if (r == 0 && i == 0) return ZERO;
-        if (r == 1 && i == 0) return ONE;
-        if (r == 0 && i == 1) return I;
+        if (r == 0 && i == 0) return zero();
+        if (r == 1 && i == 0) return one();
+        if (r == 0 && i == 1) return i();
 
         return new SimpleComplexNumber(r, i);
+    }
+    public static ComplexNumber zero() {
+        return Cache.ZERO;
+    }
+    public static ComplexNumber one() {
+        return Cache.ONE;
+    }
+    public static ComplexNumber i() {
+        return Cache.I;
     }
 
     public double realPart() {
         return r;
     }
-
     public double imaginaryPart() {
         return i;
     }
 
-    public abstract ComplexNumber plus(ComplexNumber c);
-    public abstract ComplexNumber minus(ComplexNumber c);
-    public abstract ComplexNumber times(ComplexNumber c);
-    public abstract ComplexNumber dividedBy(ComplexNumber c);
+    abstract ComplexNumber plus(ComplexNumber c);
+    abstract ComplexNumber minus(ComplexNumber c);
+    abstract ComplexNumber times(ComplexNumber c);
+    abstract ComplexNumber dividedBy(ComplexNumber c);
 
     @Override
     public boolean equals(Object other) {
@@ -67,9 +71,9 @@ public abstract class ComplexNumber implements Comparable<ComplexNumber> {
                 .compare(this, other);
     }
 
-    static class ComplexNumberCache {
-        public static final ComplexNumber ZERO = new SimpleComplexNumber(0, 0);
-        public static final ComplexNumber ONE = new SimpleComplexNumber(1, 0);
-        public static final ComplexNumber I = new SimpleComplexNumber(0, 1);
+    private static class Cache {
+        static final ComplexNumber ZERO = new SimpleComplexNumber(0, 0);
+        static final ComplexNumber ONE = new SimpleComplexNumber(1, 0);
+        static final ComplexNumber I = new SimpleComplexNumber(0, 1);
     }
 }

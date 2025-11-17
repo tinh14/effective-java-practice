@@ -29,14 +29,14 @@ public class Test {
         hashSet.add(c1);
         hashSet.add(c2);
         hashSet.add(c3);
-        hashSet.add(ComplexNumber.I);
+        hashSet.add(ComplexNumber.i());
         System.out.println("Hashset: " + hashSet);
 
         Set<ComplexNumber> treeSet = new TreeSet<>();
         treeSet.add(c1);
         treeSet.add(c2);
         treeSet.add(c3);
-        treeSet.add(ComplexNumber.I);
+        treeSet.add(ComplexNumber.i());
         System.out.println("Treeset: " + treeSet);
     }
 }
