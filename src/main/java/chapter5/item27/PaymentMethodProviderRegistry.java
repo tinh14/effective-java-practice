@@ -20,14 +20,19 @@ public final class PaymentMethodProviderRegistry {
 
     private PaymentMethodProviderRegistry(){}
 
-    @SuppressWarnings("unchecked")
+
     public static <T extends PaymentMethodProvider> T get(PaymentMethod method) {
+
         PaymentMethodProvider provider = providers.get(method);
         if (provider == null)
             throw new IllegalArgumentException("Unsupported payment method");
         // Cannot eliminate an unchecked cast warning.
         // We need to suppress the warning with @SuppressWarnings("unchecked") annotation.
-        return (T) provider;
+
+        @SuppressWarnings("unchecked")
+        T result = (T) provider;
+
+        return result;
     }
 
     // Better approach without suppressing warnings.
