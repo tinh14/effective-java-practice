@@ -84,9 +84,5 @@ public class OldNutritionFacts {
                 ", carbohydrate=" + carbohydrate +
                 '}';
     }
-
-    public static void main(String[] args) {
-
-    }
 }
 

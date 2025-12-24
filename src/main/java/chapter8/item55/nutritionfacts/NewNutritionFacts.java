@@ -86,17 +86,5 @@ public class NewNutritionFacts {
                 ", carbohydrate=" + carbohydrate +
                 '}';
     }
-
-    public static void main(String[] args) {
-        NewNutritionFacts cocaCola = new Builder(240, 8)
-                .calories(100)
-                .sodium(35)
-                .carbohydrate(27)
-                .build();
-
-        System.out.println(cocaCola);
-
-        cocaCola.fat().ifPresent(System.out::println);
-    }
 }
 
