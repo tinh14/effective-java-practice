@@ -32,15 +32,9 @@ public final class Order implements Comparable<Order> {
     // State-dependent method
     public Order ship() {
         if (!canShip())
-            throw new IllegalStateException("Cannot deliver");
+            throw new OrderException("Cannot deliver");
 
         return new Order(id, DELIVERED);
-    }
-
-    public Optional<Order> shipIfPossible() {
-        return canShip()
-                ? Optional.of(new Order(id, DELIVERED))
-                : Optional.empty();
     }
 
     public static Order of(long id) {
@@ -77,22 +71,15 @@ public final class Order implements Comparable<Order> {
         Order order = Order.of(1);
         System.out.println(order);
 
-        if (order.canShip()) {
+        order = order.ship();
+        System.out.println(order);
+
+        if (order.canShip()) { // Uses state-testing method to prevent manual exception handling
             order = order.ship();
             System.out.println(order);
         } else {
-            System.out.println("Cannot deliver");
+            System.out.println("Cannot ship");
         }
 
-        order.shipIfPossible().ifPresentOrElse(
-                System.out::println,
-                () -> System.out.println("Cannot deliver")
-        );
-
-        try {
-            order.ship();
-        } catch (IllegalStateException e) {
-            throw e;
-        }
     }
 }
