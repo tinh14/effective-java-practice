@@ -8,8 +8,8 @@ public final class BankAccount implements Comparable<BankAccount>{
     private final BigDecimal balance;
 
     private BankAccount(String customerId, BigDecimal balance) {
-        this.customerId = Objects.requireNonNull(customerId, "Customer id cannot be null");
-        this.balance = Objects.requireNonNull(balance, "Balance cannot be null");
+        this.customerId = Objects.requireNonNull(customerId);
+        this.balance = Objects.requireNonNull(balance);
 
         if (this.balance.signum() < 0)
             throw new IllegalArgumentException("Balance must not be negative");
@@ -25,7 +25,7 @@ public final class BankAccount implements Comparable<BankAccount>{
 
     public BankAccount withdraw(BigDecimal amount) {
         // Programming error
-        Objects.requireNonNull(amount, "Amount cannot be null");
+        Objects.requireNonNull(amount);
         if (amount.signum() <= 0)
             throw new IllegalArgumentException("Amount must be positive");
 
